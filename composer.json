@@ -1,0 +1,37 @@
+{
+    "name": "ackintosh/oauth2-colormeshop",
+    "description": "ColorMeShop OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Akihito Nakano",
+            "email": "sora.akatsuki@gmail.com",
+            "homepage": "https://github.com/ackintosh"
+        }
+    ],
+    "keywords": [
+        "oauth",
+        "oauth2",
+        "client",
+        "authorization",
+        "authorisation",
+        "colormeshop"
+    ],
+    "require": {
+        "league/oauth2-client": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "mockery/mockery": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ackintosh\\OAuth2\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ackintosh\\OAuth2\\Client\\Test\\": "test/src/"
+        }
+    }
+}
