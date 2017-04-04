@@ -1,5 +1,5 @@
 {
-    "name": "ackintosh/oauth2-colormeshop",
+    "name": "pepabo/oauth2-colormeshop",
     "description": "ColorMeShop OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
