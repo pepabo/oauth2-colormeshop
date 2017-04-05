@@ -18,7 +18,7 @@ a patch via pull request.
 To install, use composer:
 
 ```
-composer require ackintosh/oauth2-colormeshop
+composer require pepabo/oauth2-colormeshop
 ```
 
 ## Examples
