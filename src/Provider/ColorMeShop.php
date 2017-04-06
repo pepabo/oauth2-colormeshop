@@ -1,7 +1,7 @@
 <?php
-namespace Ackintosh\OAuth2\Client\Provider;
+namespace Pepabo\OAuth2\Client\Provider;
 
-use Ackintosh\OAuth2\Client\Exception\ColorMeShopIdentityProviderException;
+use Pepabo\OAuth2\Client\Exception\ColorMeShopIdentityProviderException;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\ResponseInterface;

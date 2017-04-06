@@ -1,5 +1,5 @@
 <?php
-namespace Ackintosh\OAuth2\Client\Exception;
+namespace Pepabo\OAuth2\Client\Exception;
 
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Psr\Http\Message\ResponseInterface;

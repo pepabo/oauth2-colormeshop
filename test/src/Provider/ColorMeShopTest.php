@@ -1,7 +1,7 @@
 <?php
-namespace Ackintosh\OAuth2\Client\Test\Provider;
+namespace Pepabo\OAuth2\Client\Test\Provider;
 
-use Ackintosh\OAuth2\Client\Provider\ColorMeShop;
+use Pepabo\OAuth2\Client\Provider\ColorMeShop;
 use Mockery as m;
 
 class ColorMeShopTest extends \PHPUnit_Framework_TestCase
