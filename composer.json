@@ -21,7 +21,7 @@
         "league/oauth2-client": "^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
+        "phpunit/phpunit": "^5.0",
         "mockery/mockery": "*"
     },
     "autoload": {
