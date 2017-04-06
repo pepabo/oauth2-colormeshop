@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ackintosh\\OAuth2\\Client\\": "src/"
+            "Pepabo\\OAuth2\\Client\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ackintosh\\OAuth2\\Client\\Test\\": "test/src/"
+            "Pepabo\\OAuth2\\Client\\Test\\": "test/src/"
         }
     }
 }

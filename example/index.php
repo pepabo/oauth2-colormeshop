@@ -1,5 +1,5 @@
 <?php
-use Ackintosh\OAuth2\Client\Provider\ColorMeShop;
+use Pepabo\OAuth2\Client\Provider\ColorMeShop;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

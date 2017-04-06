@@ -1,5 +1,5 @@
 <?php
-namespace Ackintosh\OAuth2\Client\Provider;
+namespace Pepabo\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
