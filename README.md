@@ -34,3 +34,7 @@ PHP 5.6 or higher.
 ```
 ./vendor/bin/phpunit
 ```
+
+## License
+
+[MIT](https://github.com/pepabo/oauth2-colormeshop/blob/master/LICENSE)
