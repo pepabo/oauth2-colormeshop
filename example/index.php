@@ -7,14 +7,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
 if (!session_start()) {
-    die('Filed to start session');
+    die('Failed to start session');
 }
 
 if (!($clientId = getenv('COLORME_CLIENT_ID'))) {
-    die('You should set environment variable, like `export COLORME_CLIENT_ID="XXXXXX"');
+    die('You should set environment variable, like `export COLORME_CLIENT_ID="XXXXXX"`');
 }
 if (!($clientSecret = getenv('COLORME_CLIENT_SECRET'))) {
-    die('You should set environment variable, like `export COLORME_CLIENT_SECRET="XXXXXX"');
+    die('You should set environment variable, like `export COLORME_CLIENT_SECRET="XXXXXX"`');
 }
 
 $container = new League\Container\Container;
@@ -72,7 +72,7 @@ $route->map(
         $q = $request->getQueryParams();
         if (!isset($q['state']) || $q['state'] !== $_SESSION['oauth2state']) {
             unset($_SESSION['oauth2state']);
-            die('invlid state');
+            die('invalid state');
         }
 
         $token = $provider->getAccessToken('authorization_code', [
