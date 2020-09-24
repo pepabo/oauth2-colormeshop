@@ -39,7 +39,7 @@ $provider = new ColorMeShop([
 $route->map(
     'GET',
     '/',
-    function (ServerRequestInterface $request) use ($provider) : ResponseInterface {
+    function (ServerRequestInterface $request) use ($provider) {
         $response = new Laminas\Diactoros\Response;
         if (!isset($_SESSION['token'])) {
             $authUrl = $provider->getAuthorizationUrl();
@@ -65,7 +65,7 @@ __EOS__
 $route->map(
     'GET',
     '/callback',
-    function (ServerRequestInterface $request) use ($provider) : ResponseInterface {
+    function (ServerRequestInterface $request) use ($provider) {
         $response = new Laminas\Diactoros\Response;
         $q = $request->getQueryParams();
         if (!isset($q['state']) || $q['state'] !== $_SESSION['oauth2state']) {
@@ -88,7 +88,7 @@ $route->map(
 $route->map(
     'GET',
     '/reset',
-    function (ServerRequestInterface $request) : ResponseInterface {
+    function (ServerRequestInterface $request) {
         $response = new Laminas\Diactoros\Response;
         unset($_SESSION['token']);
         return $response->withStatus(302)->withHeader('Location', '/');
