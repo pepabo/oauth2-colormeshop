@@ -26,6 +26,7 @@ composer require pepabo/oauth2-colormeshop
 ## Examples
 
 [Here](./example) is an exmaple.
+Example is PHP 7.1 or higher required.
 
 ## Requirements
 

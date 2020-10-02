@@ -17,15 +17,11 @@ if (!($clientSecret = getenv('COLORME_CLIENT_SECRET'))) {
     die('You should set environment variable, like `export COLORME_CLIENT_SECRET="XXXXXX"`');
 }
 
-$container = new League\Container\Container;
-$container->share('response', Zend\Diactoros\Response::class);
-$container->share('request', function () {
-    return Zend\Diactoros\ServerRequestFactory::fromGlobals(
-        $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
-    );
-});
-$container->share('emitter', Zend\Diactoros\Response\SapiEmitter::class);
-$route = new League\Route\RouteCollection($container);
+$request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
+    $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
+);
+
+$route = new League\Route\Router;
 
 $provider = new ColorMeShop([
     'clientId'     => $clientId,
@@ -43,7 +39,8 @@ $provider = new ColorMeShop([
 $route->map(
     'GET',
     '/',
-    function (ServerRequestInterface $request, ResponseInterface $response) use ($provider) {
+    function (ServerRequestInterface $request) use ($provider) {
+        $response = new Laminas\Diactoros\Response;
         if (!isset($_SESSION['token'])) {
             $authUrl = $provider->getAuthorizationUrl();
             $_SESSION['oauth2state'] = $provider->getState();
@@ -68,7 +65,8 @@ __EOS__
 $route->map(
     'GET',
     '/callback',
-    function (ServerRequestInterface $request, ResponseInterface $response) use ($provider) {
+    function (ServerRequestInterface $request) use ($provider) {
+        $response = new Laminas\Diactoros\Response;
         $q = $request->getQueryParams();
         if (!isset($q['state']) || $q['state'] !== $_SESSION['oauth2state']) {
             unset($_SESSION['oauth2state']);
@@ -90,11 +88,12 @@ $route->map(
 $route->map(
     'GET',
     '/reset',
-    function (ServerRequestInterface $request, ResponseInterface $response) {
+    function (ServerRequestInterface $request) {
+        $response = new Laminas\Diactoros\Response;
         unset($_SESSION['token']);
         return $response->withStatus(302)->withHeader('Location', '/');
     }
 );
 
-$response = $route->dispatch($container->get('request'), $container->get('response'));
-$container->get('emitter')->emit($response);
+$response = $route->dispatch($request);
+(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);
