@@ -13,7 +13,7 @@ a patch via pull request.
 
 ## ColorMeShop API
 
-:point_right: https://shop-pro.jp/func/api/
+:point_right: https://developer.shop-pro.jp/docs/colorme-api
 
 ## Installation
 
